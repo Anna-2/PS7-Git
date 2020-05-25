@@ -1,0 +1,2 @@
+This repo resembles an artificial example for the course Statistische Software at the LMU Munich.
+Students are expected to understand how to read diff-files and how authorship can be tracked in Github.
