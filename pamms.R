@@ -20,7 +20,7 @@
 #' @import checkmate
 #' @importFrom stats glm
 #' @export
-#' @author Julia Terhart & Philipp Koppper
+#' @author Julia Terhart & Philipp Kopper
 pem_cr <- function(formula, family = poisson, ped, offset, ...) {
   #check_input(formula, ped, offset)
   res <- vector(mode = "list", length = length(ped))
@@ -46,7 +46,7 @@ pem_cr <- function(formula, family = poisson, ped, offset, ...) {
 #' glm object. Each element should correspond to one partial competing risks
 #' model of a PEM.
 #' @return A list of summaries.
-#' @author Julia Terhart & Philipp Koppper
+#' @author Julia Terhart & Philipp Kopper
 summary.pem_cr <- function(pem_cr) {
   summary_list <- vector(mode = "list", length = length(pem_cr))
   names(summary_list) <- names(pem_cr)
@@ -63,7 +63,7 @@ summary.pem_cr <- function(pem_cr) {
 #' for a glm. Each element should correspond to one partial competing risks
 #' model of a PEM.
 #' @return A (printed) list of summaries.
-#' @author Julia Terhart & Philipp Koppper
+#' @author Julia Terhart & Philipp Kopper
 print.pem_cr <- function(summary_list) {
   for (i in 1:length(summary_list)) {
     cat(paste("Risk:", names(summary_list)[i]))
