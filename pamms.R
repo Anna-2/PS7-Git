@@ -38,23 +38,14 @@ pem_cr <- function(formula, family = poisson, ped, offset, ...) {
 
 
 #' Summary method for competing risk PEMs (piece-wise exp. models)
-
 #' 
-
 #' This function summarises the underlying models of a pem_cr object.
-
 #' The summaries are returned list-wise with each element belonging to
-
 #' one competing risk.
-
 #' @param pem_cr An object of class pem_cr where all elements are one 
-
 #' glm object. Each element should correspond to one partial competing risks
-
 #' model of a PEM.
-
 #' @return A list of summaries.
-
 #' @author Julia Terhart & Philipp Koppper
 summary.pem_cr <- function(pem_cr) {
   summary_list <- vector(mode = "list", length = length(pem_cr))
@@ -68,15 +59,10 @@ summary.pem_cr <- function(pem_cr) {
 }
 
 #' Print method for competing risk PEMs (piece-wise exp. models)
-
 #' @param summary_list a list of summaries where each element is one summary
-
 #' for a glm. Each element should correspond to one partial competing risks
-
 #' model of a PEM.
-
 #' @return A (printed) list of summaries.
-
 #' @author Julia Terhart & Philipp Koppper
 print.pem_cr <- function(summary_list) {
   for (i in 1:length(summary_list)) {
