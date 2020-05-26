@@ -21,27 +21,6 @@
 #' @importFrom stats glm
 #' @export
 #' @author Philipp Kopper
-#' @examples 
-#' library(pammtools)
-#' set.seed(31072019)
-#' df <- cbind.data.frame(
-#' x1 = runif (n, -3, 3),
-#' x2 = runif (n, 0, 6))
-#' # two component formula specifying cause specific hazards
-#' form <- ~ log(0.5) + x1 + x2 | log(0.9) + (-1) * x1 + (-1 * x2)
-#' df <- sim_pexp_cr(form, df, seq(0, 3, by = 0.25)) %>%
-#'  mutate(
-#'    cens_time = runif(n(), 0.5, 3),
-#'    status = if_else(cens_time < time, 0, 1),
-#'    time = pmin(time, cens_time),
-#'    type = status * type)
-#' df <- df[, - c(5, 6)]
-#' colnames(df)[7] <- "obs_times"
-#' ped_cr <- as_ped_cr(data = df, Surv(obs_times, status) ~ ., id = "id",
-#' cut = seq(0, max(df$obs_times), 0.25))
-#' pem_cr <- glm_cr(ped_status ~ interval + x1 + x2, 
-#'                  data = ped_cr, offset = offset, family = poisson())
-#' @author Philipp Kopper
 pem_cr <- function(formula, family = poisson, ped, offset, ...) {
   #check_input(formula, ped, offset)
   res <- vector(mode = "list", length = length(ped))
